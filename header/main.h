@@ -8,6 +8,7 @@
     int age ;
 } Personne;*/
 
+void accueil();
 void item_Choix();
 
 #endif //MAIN_H_INCLUDED
