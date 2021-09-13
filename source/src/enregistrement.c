@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
 #include "../../header/include/enregistrement.h"
 
 void enregistrement(){
@@ -11,20 +13,19 @@ void enregistrement(){
 
     printf("\t combient d'etudiants voulez-vous enregistrez ? > ");
     scanf("%d", &nbrEnregistre);
+    printf("\n");
 
-    while (nbrEnregistre < 1)
-    {
+    while(nbrEnregistre < 1){
         printf("\t Erreur ! le numero doit-etre un entier supeur non nul > ");
         scanf("%d", &nbrEnregistre);
+        printf("\n");
     }
 
     for (i = 1; i <= nbrEnregistre; i++)
     {
         demandeDinfo();
-        
     }
     
-
 }
 
 void demandeDinfo(){
@@ -33,33 +34,31 @@ void demandeDinfo(){
 
     printf("\t\t * Nom > ");
     scanf("%s", etudiant.NomEtu);
-    printf("\n");
     printf("\t\t * Postnom > ");
     scanf("%s", etudiant.PostnomEtu);
-    printf("\n");
     printf("\t\t * Age > ");
     scanf("%d", &etudiant.ageEtu);
-    printf("\n");
     printf("\t\t * Adresse > ");
     scanf("%s", etudiant.AdresseEtu);
-    printf("\n");
     printf("\t\t * Tel > ");
     scanf("%s", etudiant.Tel);
-    printf("\n");
+
+    printf("\n\t\t Tuteur ");
+    printf("\n\t\t--------\n");
+    printf("\t\t * Numero du Tuteur > ");
+    scanf("%d", &tuteur.NumTuteur);
     printf("\t\t * Nom du Tuteur > ");
     scanf("%s", tuteur.NomTuteur);
-    printf("\n");
     printf("\t\t * Profession du Tuteur > ");
     scanf("%s", tuteur.Profession);
-    printf("\n");
     printf("\t\t * Tel du Tuteur > ");
     scanf("%s", tuteur.TelTuteur);
     printf("\n");
 
+    etudiant.numTuteur = tuteur.NumTuteur;
     codeEtudiantCreation(&etudiant);
-
-    printf("%s %s %s %d %s %s\n", etudiant.CodeEtu, etudiant.NomEtu, etudiant.PostnomEtu, etudiant.ageEtu, etudiant.AdresseEtu, etudiant.Tel);
-
+    
+    printf("\t\t %s %s %s %d %s %s %d\n\n", etudiant.CodeEtu, etudiant.NomEtu, etudiant.PostnomEtu, etudiant.ageEtu, etudiant.AdresseEtu, etudiant.Tel, etudiant.numTuteur);
 
 }
 
@@ -70,16 +69,26 @@ void codeEtudiantCreation(Etudiant *etudiant){
     char chaine[30];
     char chaine2[200];
     int i = 2;
+    int lenth,j,h;
 
     strcpy(x, etudiant->NomEtu);
     strcpy(y, etudiant->PostnomEtu);
 
+    //lenth = strlen(etudiant->PostnomEtu);
+
     strncat(chaine, x, i);
-    strncat(chaine + i, y, i);
+    /*for (j = lenth, h = 0; j < lenth - 2; h++, j--)
+    {
+        strcpy(y[h], etudiant->PostnomEtu[j]);
+    }
+    y[h] = "\0";*/
+    
+    strncat(chaine + i , y, i);
 
     sprintf(chaine2,"%s%d",chaine, etudiant->ageEtu);
 
     strcpy(etudiant->CodeEtu, chaine2);
+    
 }
 
 int main(){

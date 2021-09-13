@@ -1,16 +1,13 @@
 #ifndef ENREGISTREMENT_H_INCLUDED
 #define ENREGISTREMENT_H_INCLUDED
 
-
-
 typedef struct Tuteur
 {
-    char NumTuteur[50];
+    int NumTuteur;
     char NomTuteur[50];
     char Profession[50];
     char TelTuteur[50];
 } Tuteur;
-
 
 typedef struct Etudiant
 {
@@ -20,7 +17,7 @@ typedef struct Etudiant
     int ageEtu ;
     char AdresseEtu[50];
     char Tel[50];
-    char numTuteur[50];
+    int numTuteur;
 } Etudiant;
 
 void demandeDinfo();
