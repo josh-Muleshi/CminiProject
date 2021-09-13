@@ -28,6 +28,8 @@ void enregistrement(){
     
 }
 
+/*----------------------------------------------------------------------------------------*/
+
 void demandeDinfo(){
     Etudiant etudiant;
     Tuteur tuteur;
@@ -62,6 +64,8 @@ void demandeDinfo(){
 
 }
 
+/*----------------------------------------------------------------------------------------*/
+
 void codeEtudiantCreation(Etudiant *etudiant){
     
     char x[50];
@@ -91,7 +95,7 @@ void codeEtudiantCreation(Etudiant *etudiant){
     
 }
 
-int main(){
+/*int main(){
     enregistrement();
     return 0;
-}
+}*/
