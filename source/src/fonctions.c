@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "../../header/include/fonctions.h"
 #define LGMAX 81
+
 void lire_etudiant()
 {
     FILE * fluxFichier=NULL;
@@ -19,6 +20,9 @@ void lire_etudiant()
         printf ("%s", ligne);
     }
 }
+
+/*----------------------------------------------------------------------------------------*/
+
 void lire_tuteur()
 {
     FILE * fluxFichier=NULL;
@@ -37,6 +41,8 @@ void lire_tuteur()
     }
 }
 
+/*----------------------------------------------------------------------------------------*/
+
 void enregistrer_etudiant(char * chaine, int tailleChaine)
 {
     FILE *etuFile = fopen ("../../db/etudiant_data.txt", "a");
@@ -44,6 +50,7 @@ void enregistrer_etudiant(char * chaine, int tailleChaine)
     fclose (etuFile);
 }
 
+/*----------------------------------------------------------------------------------------*/
 
 void enregistrer_tuteur(char * chaine, int tailleChaine)
 {

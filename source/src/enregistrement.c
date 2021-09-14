@@ -2,16 +2,44 @@
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include "../../header/main.h"
 #include "../../header/include/enregistrement.h"
 #include "../../header/include/fonctions.h"
 
-void enregistrement(){
-
-    int nbrEnregistre, i;
-
+void accueil_enregistrement(){
+    
     printf("\n\n                               Enregistrement                          \n\n");
     printf("===============================================================================\n\n");
 
+    demande();
+}
+
+void demande(){
+    int choix;
+
+    printf("\t\t 1. enregistrer\n");
+    printf("\t\t 2. retour\n");
+    scanf("%d", &choix);
+
+    while (choix != 1 && choix != 2)
+    {
+        printf("Erreur ! tapez soit 1 pour enregistrer soit 2 pour retourner\n");
+        scanf("%d", &choix);
+    }
+
+    if (choix == 1)
+    {
+        enregistrement();
+    }else{
+        accueil();
+    }
+}
+
+/*----------------------------------------------------------------------------------------*/
+
+void enregistrement(){
+    int nbrEnregistre, i;
+    
     printf("\t combient d'etudiants voulez-vous enregistrez ? > ");
     scanf("%d", &nbrEnregistre);
     printf("\n");
@@ -26,6 +54,8 @@ void enregistrement(){
     {
         demandeDinfo();
     }
+
+    demande();
     
 }
 

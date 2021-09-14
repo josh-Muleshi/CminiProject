@@ -1,7 +1,9 @@
 #ifndef ENREGISTREMENT_H_INCLUDED
 #define ENREGISTREMENT_H_INCLUDED
 
+void accueil_enregistrement();
 void enregistrement();
+void demande();
 
 typedef struct Tuteur
 {

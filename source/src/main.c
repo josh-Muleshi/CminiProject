@@ -16,6 +16,7 @@
 #include <stdio.h>
 #include "../../header/main.h"
 #include "../../header/include/enregistrement.h"
+#include "../../header/include/quitter.h"
 
 int main(){
     accueil();
@@ -58,13 +59,13 @@ void item_Choix(){
 
     switch (choix)
     {
-        case 1: enregistrement();
+        case 1: accueil_enregistrement();
             break;
 
         case 2: printf("\t Affichage\n");
             break;
 
-        case 3: printf("\t Quitte\n");
+        case 3: quitter();
             break;
     
     default: printf("\t erreur\n");
