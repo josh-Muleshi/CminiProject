@@ -67,8 +67,8 @@ void demandeDinfo(){
     etudiantEnregistree=(char*)malloc(sizeof(etudiant)+1);
     tuteurEnregistree=(char*)malloc(sizeof(tuteur)+1);
     /*Sortir une chaine de la forme Nom,prenom,age avec sprint*/
-    sprintf(etudiantEnregistree,"%s %s %s %d %s %s %d", etudiant.CodeEtu, etudiant.NomEtu, etudiant.PostnomEtu, etudiant.ageEtu, etudiant.AdresseEtu, etudiant.Tel, etudiant.numTuteur);
-    sprintf(tuteurEnregistree, "%d %s %s %s", tuteur.NumTuteur, tuteur.NomTuteur, tuteur.Profession, tuteur.TelTuteur);
+    sprintf(etudiantEnregistree,"%s %s %s %d %s %s %d\n", etudiant.CodeEtu, etudiant.NomEtu, etudiant.PostnomEtu, etudiant.ageEtu, etudiant.AdresseEtu, etudiant.Tel, etudiant.numTuteur);
+    sprintf(tuteurEnregistree, "%d %s %s %s\n", tuteur.NumTuteur, tuteur.NomTuteur, tuteur.Profession, tuteur.TelTuteur);
 
     enregistrer_etudiant(etudiantEnregistree, strlen(etudiantEnregistree));
     enregistrer_tuteur(tuteurEnregistree, strlen(tuteurEnregistree));
@@ -86,18 +86,20 @@ void codeEtudiantCreation(Etudiant *etudiant){
     char chaine[30];
     char * chaine2;
     int i = 2;
-    int lenth,j,h;
+    int lenth,j,h,k;
 
     strcpy(x, etudiant->NomEtu);
-
-    lenth = strlen(etudiant->PostnomEtu);
-
     strncat(chaine, x, i);
+    for ( k = 0, h = 0; k < strlen(etudiant->NomEtu);h++, k++)
+    {
+        chaine[k] = chaine[h];
+    }
+    
+    lenth = strlen(etudiant->PostnomEtu);
     for (j = 0, h = 2; j <= 2; h--, j++)
     {
         y[j] = etudiant->PostnomEtu[lenth - h];
     }
-
     strcat(chaine, y);
 
     chaine2 = (char*)malloc(sizeof(etudiant)+1);
