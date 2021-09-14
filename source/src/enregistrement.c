@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include "../../header/include/enregistrement.h"
+#include "../../header/include/fonctions.h"
 
 void enregistrement(){
 
@@ -31,6 +32,8 @@ void enregistrement(){
 /*----------------------------------------------------------------------------------------*/
 
 void demandeDinfo(){
+    char *etudiantEnregistree;
+    char *tuteurEnregistree;
     Etudiant etudiant;
     Tuteur tuteur;
 
@@ -59,6 +62,16 @@ void demandeDinfo(){
 
     etudiant.numTuteur = tuteur.NumTuteur;
     codeEtudiantCreation(&etudiant);
+
+    /*Allocation de la memoire a chaineEnregistree*/
+    etudiantEnregistree=(char*)malloc(sizeof(etudiant)+1);
+    tuteurEnregistree=(char*)malloc(sizeof(tuteur)+1);
+    /*Sortir une chaine de la forme Nom,prenom,age avec sprint*/
+    sprintf(etudiantEnregistree,"%s %s %s %d %s %s %d", etudiant.CodeEtu, etudiant.NomEtu, etudiant.PostnomEtu, etudiant.ageEtu, etudiant.AdresseEtu, etudiant.Tel, etudiant.numTuteur);
+    sprintf(tuteurEnregistree, "%d %s %s %s", tuteur.NumTuteur, tuteur.NomTuteur, tuteur.Profession, tuteur.TelTuteur);
+
+    enregistrer_etudiant(etudiantEnregistree, strlen(etudiantEnregistree));
+    enregistrer_tuteur(tuteurEnregistree, strlen(tuteurEnregistree));
     
     printf("\t\t %s %s %s %d %s %s %d\n\n", etudiant.CodeEtu, etudiant.NomEtu, etudiant.PostnomEtu, etudiant.ageEtu, etudiant.AdresseEtu, etudiant.Tel, etudiant.numTuteur);
 
@@ -71,24 +84,23 @@ void codeEtudiantCreation(Etudiant *etudiant){
     char x[50];
     char y[50];
     char chaine[30];
-    char chaine2[200];
+    char * chaine2;
     int i = 2;
     int lenth,j,h;
 
     strcpy(x, etudiant->NomEtu);
-    strcpy(y, etudiant->PostnomEtu);
 
-    //lenth = strlen(etudiant->PostnomEtu);
+    lenth = strlen(etudiant->PostnomEtu);
 
     strncat(chaine, x, i);
-    /*for (j = lenth, h = 0; j < lenth - 2; h++, j--)
+    for (j = 0, h = 2; j <= 2; h--, j++)
     {
-        strcpy(y[h], etudiant->PostnomEtu[j]);
+        y[j] = etudiant->PostnomEtu[lenth - h];
     }
-    y[h] = "\0";*/
-    
-    strncat(chaine + i , y, i);
 
+    strcat(chaine, y);
+
+    chaine2 = (char*)malloc(sizeof(etudiant)+1);
     sprintf(chaine2,"%s%d",chaine, etudiant->ageEtu);
 
     strcpy(etudiant->CodeEtu, chaine2);
