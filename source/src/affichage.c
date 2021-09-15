@@ -52,13 +52,15 @@ void accueil_affichage(){
 void retour(){
     int choix;
 
+    printf("\n");
     printf("\t\t 1. Afficher\n");
     printf("\t\t 2. Retour\n");
+    printf("\t\t > ");
     scanf("%d", &choix);
 
     while (choix != 1 && choix != 2)
     {
-        printf("Erreur ! tapez soit 1 pour Afficher soit 2 pour retourner\n");
+        printf("\t\t Erreur ! tapez soit 1 pour Afficher soit 2 pour retourner > ");
         scanf("%d", &choix);
     }
 

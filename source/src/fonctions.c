@@ -6,8 +6,9 @@
 void lire_fichier(int * choix)
 {
     FILE * lireFile=NULL;
-    char nomfichier;
+    char * nomfichier;
     
+    nomfichier=(char *)malloc(50);
 
     if (*choix == 1)
     {
@@ -29,7 +30,7 @@ void lire_fichier(int * choix)
 
 /*----------------------------------------------------------------------------------------*/
 
-void show(FILE * lireFile, char nomfichier){
+void show(FILE * lireFile, char * nomfichier){
 
     int num = 1; /*numero ligne*/
     char ligne [LGMAX]; /* tampon d une ligne */
@@ -43,7 +44,7 @@ void show(FILE * lireFile, char nomfichier){
     printf("\t\t**********************************************\n\n");
     while ( fgets (ligne, LGMAX, lireFile) ) /*tant qu'il y aura du contenu dans le fichier */
     { 
-        printf ("%5d ", num++);
+        printf ("\t\t %5d ", num++);
         printf ("%s", ligne);
     }
 }
