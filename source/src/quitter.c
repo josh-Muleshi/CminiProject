@@ -1,27 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "../../header/main.h"
 #include "../../header/include/quitter.h"
 
 void quitter(){
+    int choix;
+    //Booleen booleen;
 
-    char choix;
-    Booleen booleen;
+    printf("voulez-vous vraiment quitter ? [0/1]\n");
+    scanf("%d", &choix);
 
-    printf("voulez-vous vraiment quitter ? [O/Y]\n");
-    gets(choix);
-
-    switch (booleen)
+    switch (choix)
     {
-    case O: exit(1);
-        break;
+        case 0: exit(1);
+            break;
 
-    case N: accueil;
-        break;
-    
-    default: exit(1);
-        break;
+        case 1: accueil;
+            break;
+        
+        default: exit(1);
+            break;
     }
 
 }

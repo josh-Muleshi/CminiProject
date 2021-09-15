@@ -55,7 +55,7 @@ void enregistrement(){
         demandeDinfo();
     }
 
-    demande();
+    accueil();
     
 }
 

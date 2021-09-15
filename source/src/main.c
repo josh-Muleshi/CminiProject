@@ -16,6 +16,7 @@
 #include <stdio.h>
 #include "../../header/main.h"
 #include "../../header/include/enregistrement.h"
+#include "../../header/include/affichage.h"
 #include "../../header/include/quitter.h"
 
 int main(){
@@ -40,7 +41,6 @@ void accueil(){
 
     item_Choix();
 
-    printf("\t----------------------------------------------------------------\n\n");
 }
 
 /*----------------------------------------------------------------------------------------*/
