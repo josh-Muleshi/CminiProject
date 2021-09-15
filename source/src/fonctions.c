@@ -3,40 +3,47 @@
 #include "../../header/include/fonctions.h"
 #define LGMAX 81
 
-void lire_etudiant()
+void lire_fichier(int * choix)
 {
-    FILE * fluxFichier=NULL;
-    fluxFichier = fopen ("nomFichier", "r");
-    int num = 1; /*numero ligne*/
-    char ligne [LGMAX]; /* tampon dune ligne */
-    fluxFichier = fopen ("nomFichier", "r");
-    if(fluxFichier==NULL)
-    {printf("Fichier introuvable");
-     exit(0);
+    FILE * lireFile=NULL;
+    char nomfichier;
+    
+
+    if (*choix == 1)
+    {
+        lireFile = fopen ("../../db/etudiant_data.txt", "r");
+        nomfichier = "Etudiant";
+    }else if (*choix == 2)
+    {
+        lireFile = fopen ("../../db/parent_data.txt", "r");
+        nomfichier = "Tuteur";
     }
-    printf (" **** liste du fichier %s ****\n", "nomFichier");
-    while ( fgets (ligne, LGMAX, fluxFichier) ) /*tant qu'il y aura du contenu dans le fichier */
-        { printf ("%5d ", num++);
-        printf ("%s", ligne);
+    else
+    {
+        lireFile = fopen ("../../db/etudiant_data.txt", "r");
+        nomfichier = "Etudiant par Tuteur";
     }
+
+    show(lireFile, nomfichier);
 }
 
 /*----------------------------------------------------------------------------------------*/
 
-void lire_tuteur()
-{
-    FILE * fluxFichier=NULL;
-    fluxFichier = fopen ("nomFichier", "r");
+void show(FILE * lireFile, char nomfichier){
+
     int num = 1; /*numero ligne*/
-    char ligne [LGMAX] ; /* tampon dune ligne */
-    fluxFichier = fopen ("nomFichier", "r");
-    if(fluxFichier==NULL)
-    {printf("Fichier introuvable");
-     exit(0);
+    char ligne [LGMAX]; /* tampon d une ligne */
+
+    if(lireFile==NULL)
+    {
+        printf("Fichier introuvable");
+        exit(0);
     }
-    printf (" **** liste du fichier %s ****\n", "nomFichier");
-    while ( fgets (ligne, LGMAX, fluxFichier) ) /*tant qu'il y aura du contenu dans le fichier */
-        { printf ("%5d ", num++);
+    printf ("\t\t                 liste %s\n", nomfichier);
+    printf("\t\t**********************************************\n\n");
+    while ( fgets (ligne, LGMAX, lireFile) ) /*tant qu'il y aura du contenu dans le fichier */
+    { 
+        printf ("%5d ", num++);
         printf ("%s", ligne);
     }
 }

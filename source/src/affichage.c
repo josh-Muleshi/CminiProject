@@ -15,98 +15,57 @@ void accueil_affichage(){
     printf("\t\t 1. Afficher les etudiants\n");
     printf("\t\t 2. Afficher les tuteur\n");
     printf("\t\t 3. Afficher les etudiants par tuteur\n");
-    printf("\t\t 4. retour\n");
+    printf("\t\t 4. Retour\n");
+    printf("\t\t > ");
     scanf("%d", &choix);
 
     while (choix != 1 && choix != 2 && choix != 3 && choix != 4)
     {
-        printf("Erreur ! tapez un chiffre selon les items ci-haut\n");
+        printf("\t\t Erreur ! tapez un chiffre selon les items ci-haut > ");
         scanf("%d", &choix);
     }
 
     switch (choix)
     {
-        case 1: afficher_etudian();
+        case 1: lire_fichier(&choix);
             break;
 
-        case 2: afficher_tuteur();
+        case 2: lire_fichier(&choix);
             break;
 
-        case 3: afficher_etudian_par_tuteur();
+        case 3: lire_fichier(&choix);
             break;
 
         case 4: accueil();
             break;
     
-        default: printf("Erreur !");
+        default: printf("\t\t Erreur !\n");
             break;
     }
+
+    retour();
+
 }
 
 /*----------------------------------------------------------------------------------------*/
 
-void afficher_etudian(){
-    int nbrEnregistre, i;
-    
-    printf("\t combient d'etudiants voulez-vous enregistrez ? > ");
-    scanf("%d", &nbrEnregistre);
-    printf("\n");
+void retour(){
+    int choix;
 
-    while(nbrEnregistre < 1){
-        printf("\t Erreur ! le numero doit-etre un entier supeur non nul > ");
-        scanf("%d", &nbrEnregistre);
-        printf("\n");
-    }
+    printf("\t\t 1. Afficher\n");
+    printf("\t\t 2. Retour\n");
+    scanf("%d", &choix);
 
-    for (i = 1; i <= nbrEnregistre; i++)
+    while (choix != 1 && choix != 2)
     {
-        //demandeDinfo();
+        printf("Erreur ! tapez soit 1 pour Afficher soit 2 pour retourner\n");
+        scanf("%d", &choix);
     }
 
-    //demande();
-    
-}
-
-void afficher_tuteur(){
-    int nbrEnregistre, i;
-    
-    printf("\t combient d'etudiants voulez-vous enregistrez ? > ");
-    scanf("%d", &nbrEnregistre);
-    printf("\n");
-
-    while(nbrEnregistre < 1){
-        printf("\t Erreur ! le numero doit-etre un entier supeur non nul > ");
-        scanf("%d", &nbrEnregistre);
-        printf("\n");
-    }
-
-    for (i = 1; i <= nbrEnregistre; i++)
+    if (choix == 1)
     {
-        //demandeDinfo();
+        accueil_affichage();
+    }else{
+        accueil();
     }
-
-    //demande();
-    
-}
-
-void afficher_etudian_par_tuteur(){
-    int nbrEnregistre, i;
-    
-    printf("\t combient d'etudiants voulez-vous enregistrez ? > ");
-    scanf("%d", &nbrEnregistre);
-    printf("\n");
-
-    while(nbrEnregistre < 1){
-        printf("\t Erreur ! le numero doit-etre un entier supeur non nul > ");
-        scanf("%d", &nbrEnregistre);
-        printf("\n");
-    }
-
-    for (i = 1; i <= nbrEnregistre; i++)
-    {
-        //demandeDinfo();
-    }
-
-    //demande();
-    
 }

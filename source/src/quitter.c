@@ -7,7 +7,7 @@ void quitter(){
     int choix;
     //Booleen booleen;
 
-    printf("voulez-vous vraiment quitter ? [0/1]\n");
+    printf("Voulez-vous vraiment quitter ? [0/1]\n");
     scanf("%d", &choix);
 
     switch (choix)

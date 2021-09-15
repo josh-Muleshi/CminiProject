@@ -5,14 +5,15 @@
 *
 * Author :
 *
-* Cedric
-* Aaron
-* Grace
-* Gloire
-* josh
+* MUSONDA MOLWE Cedrick B2
+* MUSUMBA KABWIZA Aaron B3
+* MUTANGO MUKA Grace B3
+* MUTEB TSHINGEJ Gloire B3
+* MUTEBA MULESHI josh B3
 *
 * Package name : Kalopeto/source/main.c
 */
+
 #include <stdio.h>
 #include "../../header/main.h"
 #include "../../header/include/enregistrement.h"
@@ -32,7 +33,7 @@ void accueil(){
     printf("\t|                     gestion des etudiants                    |\n");
     printf("\t----------------------------------------------------------------\n\n");
 
-    printf("\t bienvenu dans kalopeto une app pour la gestion des etudiants\n\n");
+    printf("\t Bienvenu dans kalopeto une app pour la gestion des etudiants\n\n");
     printf("\t Entrez le numero d'item pour effectuer l'action correspondente\n\n");
 
     printf("\t\t1. Enregistrement\n");
@@ -62,13 +63,13 @@ void item_Choix(){
         case 1: accueil_enregistrement();
             break;
 
-        case 2: printf("\t Affichage\n");
+        case 2: accueil_affichage();
             break;
 
         case 3: quitter();
             break;
     
-    default: printf("\t erreur\n");
+    default: printf("\t Erreur !\n");
         break;
     }
     

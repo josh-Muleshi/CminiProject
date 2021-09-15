@@ -14,16 +14,19 @@ void accueil_enregistrement(){
     demande();
 }
 
+/*----------------------------------------------------------------------------------------*/
+
 void demande(){
     int choix;
 
-    printf("\t\t 1. enregistrer\n");
-    printf("\t\t 2. retour\n");
+    printf("\t\t 1. Enregistrer\n");
+    printf("\t\t 2. Retour\n");
+    printf("\t\t > ");
     scanf("%d", &choix);
 
     while (choix != 1 && choix != 2)
     {
-        printf("Erreur ! tapez soit 1 pour enregistrer soit 2 pour retourner\n");
+        printf("\t\t Erreur ! tapez soit 1 pour enregistrer soit 2 pour retourner > ");
         scanf("%d", &choix);
     }
 
@@ -40,7 +43,7 @@ void demande(){
 void enregistrement(){
     int nbrEnregistre, i;
     
-    printf("\t combient d'etudiants voulez-vous enregistrez ? > ");
+    printf("\t Combient d'etudiants voulez-vous enregistrez ? > ");
     scanf("%d", &nbrEnregistre);
     printf("\n");
 
@@ -138,8 +141,3 @@ void codeEtudiantCreation(Etudiant *etudiant){
     strcpy(etudiant->CodeEtu, chaine2);
     
 }
-
-/*int main(){
-    enregistrement();
-    return 0;
-}*/
