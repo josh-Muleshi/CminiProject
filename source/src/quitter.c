@@ -15,7 +15,7 @@ void quitter(){
         case 0: exit(1);
             break;
 
-        case 1: accueil;
+        case 1: accueil();
             break;
         
         default: exit(1);

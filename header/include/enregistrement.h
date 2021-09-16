@@ -27,5 +27,6 @@ typedef struct Etudiant
 
 void demandeDinfo();
 void codeEtudiantCreation(Etudiant *etud);
+void back();
 
 #endif //ENREGISTREMENT_H_INCLUDED
