@@ -9,7 +9,7 @@
 * MUSUMBA KABWIZA Aaron B3
 * MUTANGO MUKA Grace B3
 * MUTEB TSHINGEJ Gloire B3
-* MUTEBA MULESHI josh B3
+* MUTEBA MULESHI josue B3
 *
 * Package name : Kalopeto/source/main.c
 */
